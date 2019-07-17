@@ -29,8 +29,8 @@ const IndexPage = ({ data }) => {
         const { name } = agenda
 
         return (
-          <Link to={`/agenda/${name}`}>
-            <p key={index}>{name}</p>
+          <Link key={index} to={`/agenda/${name}`}>
+            <p>{name}</p>
           </Link>
         )
       })}
