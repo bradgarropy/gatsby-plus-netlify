@@ -10,6 +10,7 @@ export const query = graphql`
     allFile(filter: { sourceInstanceName: { eq: "agendas" } }) {
       edges {
         node {
+          name
           childMarkdownRemark {
             html
           }
