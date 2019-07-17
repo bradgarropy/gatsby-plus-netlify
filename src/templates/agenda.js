@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query READ_AGENDA($name: String!) {
@@ -11,14 +13,14 @@ export const query = graphql`
   }
 `
 
-const Agenda = ({ pageContext, data }) => {
-  console.log(pageContext)
-  console.log(data)
+const Agenda = ({ data }) => {
+  const { html } = data.file.childMarkdownRemark
 
   return (
-    <div>
-      <h1>Agenda</h1>
-    </div>
+    <Layout>
+      <SEO title="Home" />
+      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+    </Layout>
   )
 }
 
