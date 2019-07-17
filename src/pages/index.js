@@ -24,8 +24,8 @@ const IndexPage = ({ data }) => {
 
       <h1>Agendas</h1>
       {data.allFile.edges.map((edge, index) => (
-        <Link to={`/agenda/${edge.node.name}`}>
-          <p key={index}>{edge.node.name}</p>
+        <Link key={index} to={`/agenda/${edge.node.name}`}>
+          <p>{edge.node.name}</p>
         </Link>
       ))}
 
