@@ -18,15 +18,15 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => {
-  console.log(data)
-
   return (
     <Layout>
       <SEO title="Home" />
 
       <h1>Agendas</h1>
       {data.allFile.edges.map((edge, index) => (
-        <p key={index}>{edge.node.name}</p>
+        <Link to={`/agenda/${edge.node.name}`}>
+          <p key={index}>{edge.node.name}</p>
+        </Link>
       ))}
 
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
