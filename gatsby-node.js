@@ -23,13 +23,15 @@ const createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  response.data.allFile.edges.forEach(edge => {
+  const agendas = response.data.allFile.edges.map(edge => edge.node)
+
+  agendas.forEach(agenda => {
+    const { name } = agenda
+
     createPage({
-      path: `/agenda/${edge.node.name}`,
+      path: `/agenda/${name}`,
       component: path.resolve("src/templates/agenda.js"),
-      context: {
-        name: edge.node.name,
-      },
+      context: { name },
     })
   })
 }
